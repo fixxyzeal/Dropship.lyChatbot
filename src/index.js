@@ -11,20 +11,14 @@ async function HandleText(context) {
   let api = new Api();
 
   console.log(context.session);
-  let sessiondata = {
-    pageid: context.session.page.id,
-    userid: context.session.user.id,
-    last_receive_text: text,
-    last_sent_text: text,
-  };
 
   let session = await api.get(
     "sessions",
     "pageid=" + context.session.page.id + "&userid=" + context.session.user.id
   );
 
-  if (session.length > 0) {
-    await api.put("sessions/" + session[0].id, {
+  if (session.data.length > 0) {
+    await api.put("sessions/" + session.data[0].id, {
       last_receive_text: text,
       last_sent_text: text,
     });

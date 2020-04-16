@@ -11,7 +11,7 @@ module.exports = class api {
   }
 
   async get(url, query) {
-    await axios.get(process.env.BASE_URL + url + "?" + query);
+    return await axios.get(process.env.BASE_URL + url + "?" + query);
   }
 
   async put(url, data) {
