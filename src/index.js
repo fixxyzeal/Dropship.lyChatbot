@@ -23,8 +23,8 @@ async function HandleText(context) {
     "pageid=" + context.session.page.id + "&userid=" + context.session.user.id
   );
 
-  if (session.data) {
-    await api.put("sessions/" + session.data.id, {
+  if (session.length > 0) {
+    await api.put("sessions/" + session[0].id, {
       last_receive_text: text,
       last_sent_text: text,
     });
