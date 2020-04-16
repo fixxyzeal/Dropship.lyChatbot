@@ -24,7 +24,7 @@ async function HandleText(context) {
   );
 
   if (session) {
-    await api.put("sessions", {
+    await api.put("sessions/" + session.id, {
       last_receive_text: text,
       last_sent_text: text,
     });
