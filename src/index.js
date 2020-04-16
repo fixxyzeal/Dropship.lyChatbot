@@ -12,7 +12,7 @@ async function HandleText(context) {
 
   console.log(context.session);
   let session = {
-    pageid: context.session.user.name,
+    pageid: context.session.page.id,
     userid: context.session.user.id,
     Last_receive_text: text,
     Last_sent_text: text,
