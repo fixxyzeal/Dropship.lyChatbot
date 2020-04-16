@@ -6,7 +6,19 @@ module.exports = class api {
       "Bearer " + process.env.APITOKEN;
   }
 
-  async SaveSession(data) {
-    await axios.post(process.env.BASE_URL + "sessions", data);
+  async post(url, data) {
+    await axios.post(process.env.BASE_URL + url, data);
+  }
+
+  async get(url, query) {
+    await axios.get(process.env.BASE_URL + url + "?" + query);
+  }
+
+  async put(url, data) {
+    await axios.put(process.env.BASE_URL + url, data);
+  }
+
+  async delete(url, query) {
+    await axios.delete(process.env.BASE_URL + url + "?" + query);
   }
 };
