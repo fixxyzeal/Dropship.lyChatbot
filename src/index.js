@@ -14,8 +14,8 @@ async function HandleText(context) {
   let session = {
     pageid: context.session.page.id,
     userid: context.session.user.id,
-    Last_receive_text: text,
-    Last_sent_text: text,
+    last_receive_text: text,
+    last_sent_text: text,
   };
 
   await api.SaveSession(session);
