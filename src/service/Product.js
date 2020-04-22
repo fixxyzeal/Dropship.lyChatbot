@@ -7,7 +7,7 @@ async function GetProductTemplate() {
 
   product.data.forEach((item) => {
     let data = {
-      title: item.name,
+      title: item.Name,
       imageUrl: item.imgeUrl,
       subtitle: "ขายผ่าน Lazada เท่านั้นนะครับ",
       defaultAction: {
