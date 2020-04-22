@@ -14,6 +14,10 @@ module.exports = class api {
     return await axios.get(process.env.BASE_URL + url + "?" + query);
   }
 
+  async getAll(url) {
+    return await axios.get(process.env.BASE_URL + url);
+  }
+
   async put(url, data) {
     await axios.put(process.env.BASE_URL + url, data);
   }

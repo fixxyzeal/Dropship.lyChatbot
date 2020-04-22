@@ -1,4 +1,6 @@
 const Api = require("./service/Api");
+const chat = require("./data/chat");
+const product = require("./service/Product");
 
 module.exports = async function App(context) {
   if (context.event.isText) {
@@ -26,6 +28,5 @@ async function HandleText(context) {
     await api.post("sessions", sessiondata);
   }
 
-  //save session
-  await context.sendText(text);
+  await context.sendGenericTemplate(await product.GetProductTemplate());
 }
