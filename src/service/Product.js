@@ -9,7 +9,7 @@ async function GetProductTemplate() {
     let data = {
       title: item.Name,
       imageUrl: item.imgeUrl,
-      subtitle: "ขายผ่าน Lazada เท่านั้นนะครับ",
+      subtitle: numberWithCommas(item.price) + " ขายผ่าน Lazada เท่านั้นนะครับ",
       defaultAction: {
         type: "web_url",
         url: item.description,
@@ -29,6 +29,10 @@ async function GetProductTemplate() {
   });
 
   return result;
+}
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 module.exports = { GetProductTemplate };
